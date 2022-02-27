@@ -36,6 +36,7 @@
 #define POST_CONDITION(eval_expression, time_blink_delay) {}
 #endif
 
+// The senosr pin is PIN Digital 2 on arduino
 #define SENSOR_PIN  PD2
 
 /* C Prototypes of functions */
@@ -47,64 +48,54 @@ int main (void)
 {
     // Set up DBC to catch error
 	DBC_SETUP();
-    // Set Port B5, Green LED, to output
+    
+    // Set Port B5, the LED, to output
 	DDRB |= _BV(DDB5);
  
 	while(1) 
 	{
-		// Check if the button is pressed
+		// Check if the sesonor detects motion
         if (motionDetect(SENSOR_PIN))
 		{
-            // Turn on red LED back, others are off
-			turnOnLED(1);
-            // my_delay_ms(500);
-            // turnOnLED(0);          
+            // Turn on LED
+			turnOnLED(1);         
 		} else {
+            // Turn off the LED
             turnOnLED(0);
-        }
-            
+        } 
 	}
     return 0;
 }
 
 /* 
- * isButtonPressed  this function checks if the button is pressed
- * buttonPin        uint32_t - pin assigned to the button
- * return 0 if the button is not pressed, and 1 if the button is pressed
+ * motionDetect  this function checks if the sensor detects any motion
+ * sensor        uint32_t - pin assigned to the sensor
+ * return 0 if the sensor does not detect motion, and 1 if the sensor detects motion
  */
 uint8_t motionDetect(uint32_t sensor)
 {
-     // Checking the pre condition which is buttonPin is non-negative
-    // PRE_CONDITION_DBC(buttonPin >=0, 6000);
+     // Checking the pre condition which is sensor pin is non-negative
+    PRE_CONDITION_DBC(sensor >=0, 6000);
 	uint8_t isMotion = 0;
-    // Check if the button is pressed    
+    // Check if the sensor detects motion
 	if ((PIND & (1 << sensor)) != 0)
 	{
-		/* software debounce */
-		_delay_ms(15);
-        // Chech if the buton is pressed after debounce is checked
-		if ((PIND & (1 << sensor)) != 0)
-		{
-            // set return value to 1 if the button is pressed
-			isMotion = 1;
-		}
+        // set return value to 1 if the sensor detects motion
+		isMotion = 1;
 	}
 	else
 	{
-        // set return value to 0 if the button is not pressed
+        // set return value to 0 if the sensor does not detect motion
 		isMotion = 0;
 	}
     // Checking if the return value is valid, which is either 0 or 1
-    // POST_CONDITION_DBC(isPressed == 1 || isPressed == 0, 5000);
+    POST_CONDITION_DBC(isMotion == 1 || isMotion == 0, 5000);
 	return isMotion;
 }
 
 /* 
  * turnOnLED    a function to turn on specified LED
- * ledGreen     uint8_t - 1 if want to turn on the green LED. Otherwise, set it to 0
- * ledYellow    uint8_t - 1 if want to turn on the yellow LED. Otherwise, set it to 0
- * ledRed     uint8_t - 1 if want to turn on the red LED. Otherwise, set it to 0
-
+ * led     uint8_t - 1 if want to turn on the LED. Otherwise, set it to 0
  */
 void turnOnLED(uint8_t led)
 {
@@ -113,17 +104,16 @@ void turnOnLED(uint8_t led)
     
     // Turn on green LED if input = 1
 	if (led)
-            // set port D5 to HIGH
+            // set port B5 - pin 13 on Arduino - to HIGH
         	PORTB |= _BV(PORTB5);
 	else
-            // set port D5 to LOW if input = 0
+            // set port B5 - pin 13 on Arduino - to LOW if input = 0
         	PORTB &= ~_BV(PORTB5);
 }
 
 /* 
  * Handles larger delays the _delay_ms can't do by itself (not sure how accurate)  
  * Note no DBC as this function is used in the DBC !!! 
- *
  * borrowed from : https://www.avrfreaks.net/forum/delayms-problem 
  * */
 void my_delay_ms(uint32_t timeDelayed) 
