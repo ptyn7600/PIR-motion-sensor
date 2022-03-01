@@ -25,7 +25,7 @@ This is a demo Youtube video to show how the sensor will work: [PIR Motion Senso
 ## Technologies
 
 ## Coding 
-Here is the commnad line that you can run to execute the code
+Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
 $ python compile_script.py 13
 ```
