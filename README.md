@@ -7,6 +7,7 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 
 ## Table of Content
 * [Modules used in the project](#modules-used-in-the-project)
+* [Datasheet](#Datasheet)
 * 
 ## Modules used in the project
 * Arduino Uno 
@@ -18,7 +19,8 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 * Wires
 
 ## Wiring Instruction
-
+## Datasheet
+Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 ## Demonstration
 This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
 
