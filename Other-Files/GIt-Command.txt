@@ -1,7 +1,0 @@
-git add .
-git commit -m "..."
-git push -u origin main
-git push -f origin main
-
-GITHUB readme instruction : 
-https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
