@@ -73,15 +73,18 @@ In this section, I will test three functions of the sensor: sensitivity (Range),
 
 ### Sensitivity <br/>
 To adjust the sensitivity, or the range, of the sensor, we rotate the orange left potentionometer. From the [datasheet](PIR-datasheet.pdf), we can adjust the range from 3 meters to 7 meters. To set the sensitivity of 3 meters, we rotate the potentionometer all the way to the left and clock-wisely rotate to increase the range. 
-<br/><br/>
-The lowest sensitivity has been tested, and the farthest range it can detect a motion is aprroximately 3 meters. Therefore, the number from the datasheet is trustworthy. 3-meter sensitivity is already far enough to be used in many applications or projects. But if range is not required to be exact in your project, it is better to rotate the potentionometer to the middle, which will give you approxiamtely 5-meter range.
-<br/>
+#### Expereiment Setup
+In this eperiement, I test the lowest sensivity, which is expected to give the range within 3 meters. The potentionometer are rotated all the way to the left. A distance of approximately 3 meters is measured, and I stood at that distance and moved. The same setup of the Arduino, the sensor, and the LED is used. If the sensor detect a motion, the LED lights up.
+#### Experiment Result 
+The result comming out is promising as it can detect a motion with the range of approximately 3 meters, which matches the number from the datasheet. However, among 10 trials, the LED only lights up three times. Therefore, although the sensor can detect the range within 3 meters, it does not has a high reliability. Therefore, if the range is not required to be exact in your project, it is better to rotate the potentionometer to the middle, which will give you approxiamtely 5-meter range. Also, as 3-meter sensitivity is already far enough to be used in many applications or projects, no more experiments on other ranges are tested. 
+<br/><br/><br/>
 ### Time Delay <br/>
 There is two types of time introduced with this sensor:
 * Tx: Time duration that the signal stays on HIGH after triggering
 * Ti: During this time, the triggering is inhibited, which means the sensor is OFF.  
-
 However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. 
+#### Expereiment Setup
+#### Experiment Result
 <br/><br/>
 
 ### Trigger Mode <br/>
@@ -96,7 +99,7 @@ $ python compile_script.py 13
 ## Conclusion
 HC-SR501 is easy to use and interface with Arduino. It has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port. The project includes a [schematic](#wiring-instruction) and a [code](#coding) to use the sensor. 
 This project also characterizes three functions of the sensor: sensitivity (range), time delay, and triger mode. 
-* **[Sensitivity](##sensitivity):** 
+* **[Sensitivity](#sensitivity):** The lowest sensitivity of the sensor has been tested. The result got from experiments matches with the number from the datasheet, which gives the max range of 3 meters. This range is believed to be far enough to be used in many projects or application. Therefore, no further experiements on larger ranges. However, I would suggest to use a higher sensitivity to raise the realiability of detection. 
 * **Time Delay:**
 * **Trigger Mode:** 
 
