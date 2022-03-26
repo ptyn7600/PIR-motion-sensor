@@ -99,10 +99,10 @@ uint8_t motionDetect(uint32_t sensor)
  */
 void turnOnLED(uint8_t led)
 {
-    // Checking the pre condition which is ledGreen, ledYellow, ledRed is non-negative
+    // Checking the pre condition, which is led, is non-negative
     PRE_CONDITION_DBC(led == 1 || led == 0, 6000);
     
-    // Turn on green LED if input = 1
+    // Turn on LED if input = 1
 	if (led)
             // set port B5 - pin 13 on Arduino - to HIGH
         	PORTB |= _BV(PORTB5);
