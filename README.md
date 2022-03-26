@@ -121,7 +121,7 @@ The avarage Tx time is 2.802 seconds, which doubles the number from  nomn-trigge
 <br/>
 
 ## Coding 
-This is the [C file](#PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
+This is the [C file](PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
 
 You can include the python file in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
