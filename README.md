@@ -71,8 +71,9 @@ In this section, I will test three functions of the sensor: sensitivity (Range),
 
 ### Sensitivity <br/>
 To adjust the sensitivity, or the range, of the sensor, we rotate the orange left potentionometer. From the [datasheet](PIR-datasheet.pdf), we can adjust the range from 3 meters to 7 meters. To set the sensitivity of 3 meters, we rotate the potentionometer all the way to the left and clock-wisely rotate to increase the range. 
+<br/><br/>
+The lowest sensitivity has been tested, and the farthest range it can detect a motion is aprroximately 3 meters. Therefore, the number from the datasheet is trustworthy. 3-meter sensitivity is already far enough to be used in many applications or projects. But if range is not required to be exact in your project, it is better to rotate the potentionometer to the middle, which will give you approxiamtely 5-meter range.
 <br/>
-The lowest sensitivity has been tested, and the farthest range it can detect a motion is aprroximately 3 meters. Therefore, the number from the datasheet is trustworthy. 3-meter sensitivity is already far enough to be used in many applications or projects. 
 ### Time Delay <br/>
 ### Trigger Mode <br/>
 <br/>
