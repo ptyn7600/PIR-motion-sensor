@@ -100,11 +100,26 @@ Below is the graph with data collected from above experiment setup.
 The avarage Tx time is 1.02 seconds. It gives a pretty much consistent result. A "reset time" period is also recorded. During this time, the sensor will be OFF and detects nothing. The reset time is consistent as well, which is around 4-4.5 seconds. 
 <br/><br/>
 
-### Trigger Mode <br/>
+### Trigger Mode <br/> 
+There are two trigger mode that you can adjust with this sensor: non-retriggering and retriggering. In non-retriggering mode, the sensor will only give a HIGH signal for Tx time. In the other hand, if you are in retrigerring mode, the sensor will stay on the HIGH signal for the whole time there is a detected motion. Below is the experiment to test this trigger modes. 
+#### Expereiment Setup
+I used the same setup with the same code as previous experiment. The only difference is that the sensor is in triggered mode by changing the position of the jumper. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.]()
+#### Experiment Result
+Below is the graph with data collected from above experiment setup.
+<p align="center">
+  <img 
+    width="700"
+    height="400"
+    src="Images/Test-Time-Trigger.png"
+  >
+</p>
+The avarage Tx time is 2.802 seconds, which doubles the number from  nomn-trigger mode. In this setting, the sensor does not give consistent and expected result. We expected the LED to remain on HIGH signal because I keeps moving for the whole experiment. However, it turns OFF after a while. So, you should keep in mind this inconsistent bahavior of this sensor while designing your project. A "reset time" period is also recorded, and it is consistent, which is around 4-4.5 seconds. 
 <br/>
 
 ## Coding 
-Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
+This is the [C file]() that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
+
+You can include the python file in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
 $ python compile_script.py 13
 ```
@@ -112,9 +127,9 @@ $ python compile_script.py 13
 ## Conclusion
 HC-SR501 is easy to use and interface with Arduino. It has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port. The project includes a [schematic](#wiring-instruction) and a [code](#coding) to use the sensor. 
 This project also characterizes three functions of the sensor: sensitivity (range), time delay, and triger mode. 
-* **[Sensitivity](#sensitivity):** The lowest sensitivity of the sensor has been tested. The result got from experiments matches with the number from the datasheet, which gives the max range of 3 meters. This range is believed to be far enough to be used in many projects or application. Therefore, no further experiements on larger ranges. However, I would suggest to use a higher sensitivity to raise the realiability of detection. 
-* **Time Delay:**
-* **Trigger Mode:** 
+* **Sensitivity:** The lowest sensitivity of the sensor has been tested. The result got from experiments matches with the number from the datasheet, which gives the max range of 3 meters. This range is believed to be far enough to be used in many projects or application. Therefore, no further experiements on larger ranges. However, I would suggest to use a higher sensitivity to raise the realiability of detection. 
+* **Time Delay:** The lowest time delay of the sensor has been tested. In non-trigger mode, the signal will stay on HIGH signal for roughly a second. The reset period is consistent throughout the experiments, which is around 4-4.5 seconds. Normally, I will use this lowest time delay. However, if you want to have your signal stay on HIGH for a longer time, you can rotate the potentionometer clock-wise and do the same experiement to know exactly the ON time of the setting. 
+* **Trigger Mode:** The trigger function of the sensor has been tested. It does not give consistent and expected result; however, it does give a longer ON time for the signal. Therefore, this function is not reliable and should be carefule if you want to use it in your project. 
 
 
 ## Contributor
