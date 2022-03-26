@@ -78,7 +78,7 @@ In this section, I will test three functions of the sensor: sensitivity (Range),
 ### Sensitivity <br/>
 To adjust the sensitivity, or the range, of the sensor, we rotate the orange left potentionometer. From the [datasheet](PIR-datasheet.pdf), we can adjust the range from 3 meters to 7 meters. To set the sensitivity of 3 meters, we rotate the potentionometer all the way to the left and clock-wisely rotate to increase the range. 
 #### Expereiment Setup
-In this eperiement, I test the lowest sensivity, which is expected to give the range within 3 meters. The potentionometer are rotated all the way to the left. A distance of approximately 3 meters is measured, and I stood at that distance and moved. The same setup of the Arduino, the sensor, and the LED is used. If the sensor detect a motion, the LED lights up.
+In this eperiement, I test the lowest sensivity, which is expected to give the range within 3 meters. The potentionometer are rotated all the way to the left. A distance of approximately 3 meters is measured, and I stood at that distance and moved. The same setup of the Arduino, the sensor, and the LED is used. If the sensor detects a motion, the LED lights up.
 #### Experiment Result 
 The result comming out is promising as it can detect a motion with the range of approximately 3 meters, which matches the number from the datasheet. However, among 10 trials, the LED only lights up three times. Therefore, although the sensor can detect the range within 3 meters, it does not has a high reliability. Therefore, if the range is not required to be exact in your project, it is better to rotate the potentionometer to the middle, which will give you approxiamtely 5-meter range. Also, as 3-meter sensitivity is already far enough to be used in many applications or projects, no more experiments on other ranges are tested. 
 <br/><br/><br/>
@@ -87,9 +87,10 @@ There is two types of time introduced with this sensor:
 * Tx: Time duration that the signal stays on HIGH after triggering
 * Ti: During this time, the triggering is inhibited, which means the sensor is OFF.  
 
- However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. In the [datasheet](PIR-datasheet.pdf), we can calculate the expected Tx time using below equation:
+ However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. In the [datasheet](PIR-datasheet.pdf), we can calculate the expected Tx time using this equation:
                                               Tx = 24576 x R<sub>10</sub> x C<sub>6</sub>
-HC-SR501 has many models with different value of the resistor and capacitor. Therefore, we need to read out from the PCB which values the resistor and the capacitor are. However, the sensor I bought unfortunately didn't mark which resistor is R<sub>10</sub> and which capacitor is C<sub>6</sub>. If you are in the same situation, we need conduct experiments to figure the Tx time. Below is the expereiment that I conducted. 
+<br/>
+HC-SR501 has many models with different values of the resistor and capacitor. Therefore, we need to read out from the PCB which values the resistor and the capacitor are. However, the sensor I bought unfortunately didn't mark which resistor is R<sub>10</sub> and which capacitor is C<sub>6</sub>. If you are in the same situation, we need conduct experiments to figure the Tx time. Below is the expereiment that I conducted. 
 #### Expereiment Setup
 I used the same setup with the same code as previous experiment. We are in non-trigger mode, and the potentionometer is all the way to the left which will give lowest time delay.  My hand keeps moving in front of the sensor. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.](https://youtube.com/shorts/UiOFL9a3K1A)
 #### Experiment Result
@@ -117,13 +118,13 @@ Below is the graph with data collected from above experiment setup.
     src="Images/Test-Time-Trigger.png"
   >
 </p>
-The avarage Tx time is 2.802 seconds, which doubles the number from  nomn-trigger mode. In this setting, the sensor does not give consistent and expected result. We expected the LED to remain on HIGH signal because I keeps moving for the whole experiment. However, it turns OFF after a while. So, you should keep in mind this inconsistent bahavior of this sensor while designing your project. A "reset time" period is also recorded, and it is consistent, which is around 4-4.5 seconds. 
+The avarage Tx time is 2.802 seconds, which doubles the number from  non-trigger mode. In this setting, the sensor does not give consistent and expected result. We expected the LED to remain on HIGH signal because I keeps moving for the whole experiment. However, it turns OFF after a while. So, you should keep in mind this inconsistent bahavior of this sensor while designing your project. A "reset time" period is also recorded, and it is consistent, which is around 4-4.5 seconds. 
 <br/>
 
 ## Coding 
-This is the [C file](PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
+This is the [C file](PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Comments are included in the code so that you can easily follow the logic of the code.
 
-You can include the python file in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
+You can include the [python file](compile_script.py) in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
 $ python compile_script.py 13
 ```
@@ -131,9 +132,9 @@ $ python compile_script.py 13
 ## Conclusion
 HC-SR501 is easy to use and interface with Arduino. It has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port. The project includes a [schematic](#wiring-instruction) and a [code](#coding) to use the sensor. 
 This project also characterizes three functions of the sensor: sensitivity (range), time delay, and triger mode. 
-* **Sensitivity:** The lowest sensitivity of the sensor has been tested. The result got from experiments matches with the number from the datasheet, which gives the max range of 3 meters. This range is believed to be far enough to be used in many projects or application. Therefore, no further experiements on larger ranges. However, I would suggest to use a higher sensitivity to raise the realiability of detection. 
+* **Sensitivity:** The lowest sensitivity of the sensor has been tested. The result got from experiments matches with the number from the datasheet, which gives the max range of 3 meters. This range is believed to be far enough to be used in many projects or applications. Therefore, no further experiements on larger ranges. However, I would suggest to use a higher sensitivity to raise the realiability of detection. 
 * **Time Delay:** The lowest time delay of the sensor has been tested. In non-trigger mode, the signal will stay on HIGH signal for roughly a second. The reset period is consistent throughout the experiments, which is around 4-4.5 seconds. Normally, I will use this lowest time delay. However, if you want to have your signal stay on HIGH for a longer time, you can rotate the potentionometer clock-wise and do the same experiement to know exactly the ON time of the setting. 
-* **Trigger Mode:** The trigger function of the sensor has been tested. It does not give consistent and expected result; however, it does give a longer ON time for the signal. Therefore, this function is not reliable and should be carefule if you want to use it in your project. 
+* **Trigger Mode:** The trigger function of the sensor has been tested. It does not give consistent and expected result; however, it does give a longer ON time for the signal. Therefore, this function is not reliable, and you should be careful if you want to use it in your project. 
 
 
 ## Contributor
