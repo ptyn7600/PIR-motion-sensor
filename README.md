@@ -6,8 +6,13 @@ This is a class mini project at Miami University to introduce to other classmate
 Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. 
 
 ## Table of Content
+* [How The HC-SR501 works](#how-the-hc-sr501-works)
 * [Modules used in the project](#modules-used-in-the-project)
+* [Datasheet](#datasheet)
 * 
+
+## How The HC-SR501 works
+HC-SR501 has two parts: the Fresnel sensor and the pyroelectric sensor. []
 ## Modules used in the project
 * Arduino Uno 
 * An USB cable
@@ -18,6 +23,9 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 * Wires
 
 ## Wiring Instruction
+
+## Datasheet
+Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 
 ## Demonstration
 This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
