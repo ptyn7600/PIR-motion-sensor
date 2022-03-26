@@ -56,16 +56,19 @@ This is a demo Youtube video to show how the sensor will work: [PIR Motion Senso
 In this section, I will test three functions of the sensor: sensitivity (Range), time delay, and trigger mode.
 <p align="center">
   <img 
-    width="200"
-    src="Images/PIR-diagram.png"
+    width="400"
+    src="Images/Sensor-Funtion.png"
   >
 </p>
-<br/>
-### Sensitivity
 
-### Time Delay
-### Trigger Mode
+### Sensitivity <br/>
+To adjust the sensitivity, or the range, of the sensor, we rotate the orange left potentionometer. From the [datasheet](PIR-datasheet.pdf), we can adjust the range from 3 meters to 7 meters. To set the sensitivity of 3 meters, we rotate the potentionometer all the way to the left and clock-wisely rotate to increase the range. 
 <br/>
+The lowest sensitivity has been tested, and the farthest range it can detect a motion is aprroximately 3 meters. Therefore, the number from the datasheet is trustworthy. 3-meter sensitivity is already far enough to be used in many applications or projects. 
+### Time Delay <br/>
+### Trigger Mode <br/>
+<br/>
+
 ## Coding 
 Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
