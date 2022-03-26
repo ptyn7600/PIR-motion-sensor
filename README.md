@@ -82,7 +82,8 @@ The result comming out is promising as it can detect a motion with the range of 
 There is two types of time introduced with this sensor:
 * Tx: Time duration that the signal stays on HIGH after triggering
 * Ti: During this time, the triggering is inhibited, which means the sensor is OFF.  
-However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. In the [datasheet](PIR-datasheet.pdf), we can calculate the expected Tx time using below equation:
+
+ However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. In the [datasheet](PIR-datasheet.pdf), we can calculate the expected Tx time using below equation:
                                               Tx = 24576 x R<sub>10</sub> x C<sub>6</sub>
 HC-SR501 has many models with different value of the resistor and capacitor. Therefore, we need to read out from the PCB which values the resistor and the capacitor are. However, the sensor I bought unfortunately didn't mark which resistor is R<sub>10</sub> and which capacitor is C<sub>6</sub>. If you are in the same situation, we need conduct experiments to figure the Tx time. Below is the expereiment that I conducted. 
 #### Expereiment Setup
@@ -96,7 +97,7 @@ Below is the graph with data collected from above experiment setup.
     src="Images/Test-Time-Delay.png"
   >
 </p>
-The avarage Tx time is 1.02 seconds. It gives a pretty much consistent result. A "reset time" period is also recorded. During this time, the sensor will be OFF and detects nothing. The reset time is consitent as well, which is around 4-4.5 seconds. 
+The avarage Tx time is 1.02 seconds. It gives a pretty much consistent result. A "reset time" period is also recorded. During this time, the sensor will be OFF and detects nothing. The reset time is consistent as well, which is around 4-4.5 seconds. 
 <br/><br/>
 
 ### Trigger Mode <br/>
