@@ -82,9 +82,20 @@ The result comming out is promising as it can detect a motion with the range of 
 There is two types of time introduced with this sensor:
 * Tx: Time duration that the signal stays on HIGH after triggering
 * Ti: During this time, the triggering is inhibited, which means the sensor is OFF.  
-However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. 
+However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. In the [datasheet](PIR-datasheet.pdf), we can calculate the expected Tx time using below equation:
+```
+                                              Tx = 24576 x (10K +R<sub>time</sub>) x 0.001uF
+```
 #### Expereiment Setup
 #### Experiment Result
+
+<p align="center">
+  <img 
+    width="700"
+    height="400"
+    src="Images/Test-Time-Delay.png"
+  >
+</p>
 <br/><br/>
 
 ### Trigger Mode <br/>
