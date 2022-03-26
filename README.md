@@ -8,7 +8,9 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 * [How The HC-SR501 works](#how-the-hc-sr501-works)
 * [Parts used in the project](#parts-used-in-the-project)
 * [Datasheet](#datasheet)
-* 
+* [Demonstration](#demonstration)
+* [Characterization the Sensor](#characterization-the-sensor)
+
 
 ## How The HC-SR501 works
 HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in our life. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. <br/>
@@ -43,10 +45,11 @@ HC-SR501 is simple to wire with the Arduino. The sensor only has three ports: on
     src="Images/PIR-diagram.png"
   >
 </p>
-Below is the schematic how to wire up with Arduino 
+Below is the schematic how to wire up with Arduino. <br/> <br/>
 <p align="center">
   <img 
-    width="200"
+    width="400"
+    height="200"
     src="Images/Arduino-Circuit.png"
   >
 </p>
@@ -61,7 +64,7 @@ This is a demo Youtube video to show how the sensor will work: [PIR Motion Senso
 In this section, I will test three functions of the sensor: sensitivity (Range), time delay, and trigger mode.
 <p align="center">
   <img 
-    width="400"
+    width="600"
     src="Images/Sensor-Funtion.png"
   >
 </p>
@@ -79,6 +82,11 @@ Here is the commnad line that you can run to execute the code. Note: I have 13 a
 ```
 $ python compile_script.py 13
 ```
+
+## Conclusion
+HC-SR501 is easy to use and interface with Arduino. It has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port. The project includes a [schematic]() and a [code]() to use the sensor. 
+This project also characterizes three functions of the sensor: sensitivity (range), time delay, and triger mode. 
+
 
 ## Contributor
 * [Tra Yen Nhu Phan](https://github.com/ptyn7600)
