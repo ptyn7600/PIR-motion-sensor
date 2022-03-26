@@ -53,7 +53,11 @@ Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
 
 ## Characterization the Sensor
+### Sensitivity
 
+### Time Delay
+### Trigger Mode
+<br/>
 ## Coding 
 Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
