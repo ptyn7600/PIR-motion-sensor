@@ -43,8 +43,13 @@ HC-SR501 is simple to wire with the Arduino. The sensor only has three ports: on
     src="Images/PIR-diagram.png"
   >
 </p>
-Below is the schematic how to wire up with Arduino
-
+Below is the schematic how to wire up with Arduino 
+<p align="center">
+  <img 
+    width="200"
+    src="Images/Arduino-Circuit.png"
+  >
+</p>
 
 ## Datasheet
 Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
