@@ -96,6 +96,9 @@ $ python compile_script.py 13
 ## Conclusion
 HC-SR501 is easy to use and interface with Arduino. It has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port. The project includes a [schematic](#wiring-instruction) and a [code](#coding) to use the sensor. 
 This project also characterizes three functions of the sensor: sensitivity (range), time delay, and triger mode. 
+* **[Sensitivity](#sensitivity):** 
+* **Time Delay:**
+* **Trigger Mode:** 
 
 
 ## Contributor
