@@ -48,8 +48,8 @@ HC-SR501 is simple to wire with the Arduino. The sensor only has three ports: on
 Below is the schematic how to wire up with Arduino. <br/> <br/>
 <p align="center">
   <img 
-    width="400"
-    height="200"
+    width="600"
+    height="300"
     src="Images/Arduino-Circuit.png"
   >
 </p>
