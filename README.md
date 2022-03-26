@@ -53,6 +53,14 @@ Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
 
 ## Characterization the Sensor
+In this section, I will test three functions of the sensor: sensitivity (Range), time delay, and trigger mode.
+<p align="center">
+  <img 
+    width="200"
+    src="Images/PIR-diagram.png"
+  >
+</p>
+<br/>
 ### Sensitivity
 
 ### Time Delay
