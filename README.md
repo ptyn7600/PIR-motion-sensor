@@ -7,21 +7,27 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 
 ## Table of Content
 * [How The HC-SR501 works](#how-the-hc-sr501-works)
-* [Modules used in the project](#modules-used-in-the-project)
+* [Parts used in the project](#parts-used-in-the-project)
 * [Datasheet](#datasheet)
 * 
 
 ## How The HC-SR501 works
-HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in our life. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. 
+HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in our life. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. <br/>
 <p align="center">
   <img 
     width="300"
     src="Images/PIR-motion.jpg"
   >
 </p>
-The Fresnel lens help to focus the infared radiation into the pyroelectric sensor. The 
+The Fresnel lens help to focus the infared radiation into the pyroelectric sensor. If we look closer, the pyroelectric sensor has two rectangle infared sensor electrodes. One will produce the positive output voltage and one will produce the negative output voltage. Those two electrodes are wired up so that they will give the difference between two output voltages. Using two electrodes instead of one because we want to track the change in the radiation level, not the ambient level. <br/><br/>
+<p align="center">
+  <img 
+    width="300"
+    src="Images/Pyroelectric-Sensor.gif"
+  >
+</p>
 
-## Modules used in the project
+## Parts used in the project
 * Arduino Uno 
 * An USB cable
 * A mini breadboard
