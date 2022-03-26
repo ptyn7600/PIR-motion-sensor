@@ -1,6 +1,5 @@
 # PIR Motion Sensor with Arduino
-This is a class mini project at Miami University to introduce to other classmates about one chip that they can use in their further final project.
-
+This is a class mini project at Miami University to introduce to other classmates about one chip that they can use in their further final project.<br/>
 
 ## Introduction
 Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. 
@@ -37,6 +36,15 @@ The Fresnel lens help to focus the infared radiation into the pyroelectric senso
 * Wires
 
 ## Wiring Instruction
+HC-SR501 is simple to wire with the Arduino. The sensor only has three ports: one connects to 5V, one connects to the GND, and the middle port is the output port.<br/>
+<p align="center">
+  <img 
+    width="200"
+    src="Images/PIR-diagram.png"
+  >
+</p>
+Below is the schematic how to wire up with Arduino
+
 
 ## Datasheet
 Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
