@@ -12,7 +12,15 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 * 
 
 ## How The HC-SR501 works
-HC-SR501 has two parts: the Fresnel sensor and the pyroelectric sensor. (Images/PIR-motion.jpg)
+HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in our life. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. 
+<p align="center">
+  <img 
+    width="300"
+    src="Images/PIR-motion.jpg"
+  >
+</p>
+The Fresnel lens help to focus the infared radiation into the pyroelectric sensor. The 
+
 ## Modules used in the project
 * Arduino Uno 
 * An USB cable
@@ -30,7 +38,7 @@ Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 ## Demonstration
 This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
 
-## Technologies
+## Characterization the Sensor
 
 ## Coding 
 Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
