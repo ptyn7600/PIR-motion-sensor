@@ -12,7 +12,7 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 * 
 
 ## How The HC-SR501 works
-HC-SR501 has two parts: the Fresnel sensor and the pyroelectric sensor. []
+HC-SR501 has two parts: the Fresnel sensor and the pyroelectric sensor. (Images/PIR-motion.jpg)
 ## Modules used in the project
 * Arduino Uno 
 * An USB cable
