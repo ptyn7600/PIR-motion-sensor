@@ -75,6 +75,13 @@ To adjust the sensitivity, or the range, of the sensor, we rotate the orange lef
 The lowest sensitivity has been tested, and the farthest range it can detect a motion is aprroximately 3 meters. Therefore, the number from the datasheet is trustworthy. 3-meter sensitivity is already far enough to be used in many applications or projects. But if range is not required to be exact in your project, it is better to rotate the potentionometer to the middle, which will give you approxiamtely 5-meter range.
 <br/>
 ### Time Delay <br/>
+There is two types of time introduced with this sensor:
+* Tx: Time duration that the signal stays on HIGH after triggering
+* Ti: During this time, the triggering is inhibited, which means the sensor is OFF.  
+
+However, while we easily change Tx by rotating the orange right potentionometer, we need to replace some parts, specifically one resistor and one capacitor to change Ti. Therefore, in this project, I will only introduce how to adjust Tx as I don't want to resolder the PCB. 
+<br/><br/>
+
 ### Trigger Mode <br/>
 <br/>
 
