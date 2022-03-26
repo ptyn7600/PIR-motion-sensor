@@ -64,7 +64,7 @@ Below is the schematic how to wire up with Arduino in this project. If the senso
 Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
 
 ## Demonstration
-This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtu.be/V0tJ8MuLAaM)
+This is a demo Youtube video to show how the sensor will work: [PIR Motion Sensor Demo](https://youtube.com/shorts/OY8lI_vgRac)
 
 ## Characterization the Sensor
 In this section, I will test three functions of the sensor: sensitivity (Range), time delay, and trigger mode.
