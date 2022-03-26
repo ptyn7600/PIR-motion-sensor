@@ -2,7 +2,7 @@
 This is a class mini project at Miami University to introduce to other classmates about one chip that they can use in their further final project.<br/>
 
 ## Introduction
-Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. 
+Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. This project also characterize some function of the sensor to see how well the sensor performs.
 
 ## Table of Content
 * [How The HC-SR501 works](#how-the-hc-sr501-works)
@@ -15,14 +15,14 @@ Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such
 
 
 ## How The HC-SR501 works
-HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in our life. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. <br/>
+HC-SR501 works based on sensing the infared radiation from the objects. Any object that has a temperature above absolute zero kelvin will emit the infared radition. Therefore, HC-SR501 works with most objects in around us. HC-SR501 has two parts: the Fresnel lens and the pyroelectric sensor. <br/>
 <p align="center">
   <img 
     width="300"
     src="Images/PIR-motion.jpg"
   >
 </p>
-The Fresnel lens help to focus the infared radiation into the pyroelectric sensor. If we look closer, the pyroelectric sensor has two rectangle infared sensor electrodes. One will produce the positive output voltage and one will produce the negative output voltage. Those two electrodes are wired up so that they will give the difference between two output voltages. Using two electrodes instead of one because we want to track the change in the radiation level, not the ambient level. <br/><br/>
+The Fresnel lens help to focus the infared radiation into the pyroelectric sensor. If we look closer, the pyroelectric sensor has two rectangle infared sensor electrodes. One will produce the positive output voltage and one will produce the negative output voltage. Those two electrodes are wired up so that they will give the difference between two output voltages. It uses two electrodes instead of one because we want to track the change in the radiation level, not the ambient level. <br/><br/>
 <p align="center">
   <img 
     width="300"
@@ -47,14 +47,18 @@ HC-SR501 is simple to wire with the Arduino. The sensor only has three ports: on
     src="Images/PIR-diagram.png"
   >
 </p>
-Below is the schematic how to wire up with Arduino. <br/> <br/>
-<p align="center">
-  <img 
-    width="600"
-    height="300"
-    src="Images/Arduino-Circuit.png"
-  >
-</p>
+Below is the schematic how to wire up with Arduino in this project. If the sensor detects a motion, the LED is turned ON. <br/> <br/>
+
+<img align="right" width="550" height="250" src="Images/Arduino-Circuit.png" >
+
+|     Parts     |     Ports     |
+| ------------- | ------------- |
+| Sensor VCC    |     5V        |
+| Sensor GND    |     GND       |
+| Sensor Output |   Digital 2   |
+| LED           |   Digital 13  |
+
+<br clear="right"/>
 
 ## Datasheet
 Here is the datasheet of [HC-SR501](PIR-datasheet.pdf)
@@ -87,7 +91,7 @@ There is two types of time introduced with this sensor:
                                               Tx = 24576 x R<sub>10</sub> x C<sub>6</sub>
 HC-SR501 has many models with different value of the resistor and capacitor. Therefore, we need to read out from the PCB which values the resistor and the capacitor are. However, the sensor I bought unfortunately didn't mark which resistor is R<sub>10</sub> and which capacitor is C<sub>6</sub>. If you are in the same situation, we need conduct experiments to figure the Tx time. Below is the expereiment that I conducted. 
 #### Expereiment Setup
-I used the same setup with the same code as previous experiment. We are in non-trigger mode, and the potentionometer is all the way to the left which will give lowest time delay.  My hand keeps moving in front of the sensor. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.]()
+I used the same setup with the same code as previous experiment. We are in non-trigger mode, and the potentionometer is all the way to the left which will give lowest time delay.  My hand keeps moving in front of the sensor. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.](https://youtube.com/shorts/UiOFL9a3K1A)
 #### Experiment Result
 Below is the graph with data collected from above experiment setup. 
 <p align="center">
@@ -103,7 +107,7 @@ The avarage Tx time is 1.02 seconds. It gives a pretty much consistent result. A
 ### Trigger Mode <br/> 
 There are two trigger mode that you can adjust with this sensor: non-retriggering and retriggering. In non-retriggering mode, the sensor will only give a HIGH signal for Tx time. In the other hand, if you are in retrigerring mode, the sensor will stay on the HIGH signal for the whole time there is a detected motion. Below is the experiment to test this trigger modes. 
 #### Expereiment Setup
-I used the same setup with the same code as previous experiment. The only difference is that the sensor is in triggered mode by changing the position of the jumper. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.]()
+I used the same setup with the same code as previous experiment. The only difference is that the sensor is in triggered mode by changing the position of the jumper. A video is recorded to track the time, and 10 trials are recorded. [A video of the experiment is here if you want to conduct the experiment.](https://youtu.be/H-7SRJjy5_Y)
 #### Experiment Result
 Below is the graph with data collected from above experiment setup.
 <p align="center">
@@ -117,7 +121,7 @@ The avarage Tx time is 2.802 seconds, which doubles the number from  nomn-trigge
 <br/>
 
 ## Coding 
-This is the [C file]() that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
+This is the [C file](#PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Commnents are included in the code so that you can easily follow the logic of the code.
 
 You can include the python file in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
