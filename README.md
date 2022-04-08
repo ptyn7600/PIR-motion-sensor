@@ -2,7 +2,7 @@
 This is a class mini project at Miami University to introduce to other classmates about one chip that they can use in their further final project.<br/>
 
 ## Introduction
-Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. This project also characterize some functions of the sensor to see how well the sensor performs.
+Passive Infrared (PIR) Motion Sensor is commonly used in many applications, such as automatic doors, security alarm system, etc. This project uses motion sensor HC-SR501 and interface it with the Atmega328P on the Ardunio. The code is in C language, and avr-gcc toolchain is used to compile the code. It's very simple to use the sensor. So no external libriary is needed. To add value to this project, I will characterize some functions of the sensor to see how well the sensor performs.
 
 ## Table of Content
 * [How The HC-SR501 works](#how-the-hc-sr501-works)
@@ -130,7 +130,7 @@ Simply, we first declare a pin that read the output signal from the output port 
 ```
 Then below is the line of code to read in the signal. This will return HIGH or LOW (~ TRUE (1) or FALSE(0)):
 ```
-sinal = PIND & (1 << SENSOR_PIN)
+signal = PIND & (1 << SENSOR_PIN)
 ```
 
 
