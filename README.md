@@ -122,7 +122,17 @@ The avarage Tx time is 2.802 seconds, which doubles the number from  non-trigger
 <br/>
 
 ## Coding 
-This is the [C file](PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Comments are included in the code so that you can easily follow the logic of the code.
+This is the [C file](PIR-motion-sensor.c) that you can run with avr toolchain. The code is pretty simple, which read in the output signal from the sensor and light up the LED if the signal is HIGH. The code includes some Design By Contracts functions to help with debug the program. Comments are included in the code so that you can easily follow the logic of the code. 
+Simply, we first declare a pin that read the output signal from the output port of the sensor. Here we make pin digital 2 to read the signal:
+```
+// The senosr pin is PIN Digital 2 on arduino
+#define SENSOR_PIN  PD2
+```
+Then below is the line of code to read in the signal. This will return HIGH or LOW (~ TRUE (1) or FALSE(0)):
+```
+sinal = PIND & (1 << SENSOR_PIN)
+```
+
 
 You can include the [python file](compile_script.py) in your same project to run the code easily. Here is the commnad line that you can run to execute the code. Note: I have 13 as my COM for my arduino USB port.
 ```
