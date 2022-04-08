@@ -76,7 +76,7 @@ uint8_t motionDetect(uint32_t sensor)
 {
      // Checking the pre condition which is sensor pin is non-negative
     PRE_CONDITION_DBC(sensor >=0, 6000);
-	uint8_t isMotion = 0;
+    uint8_t isMotion = 0;
     // Check if the sensor detects motion
 	if ((PIND & (1 << sensor)) != 0)
 	{
